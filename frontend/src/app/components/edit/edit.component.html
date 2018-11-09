@@ -1,0 +1,35 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Update Employee</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="updateForm" class="edit-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Employee Name" formControlName="Name" #Name>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Age" formControlName="Age" #Age>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <textarea matInput placeholder="Position" formControlName="Position" #Position></textarea>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <textarea matInput placeholder="Skill" formControlName="Skill" #Skill></textarea>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-select placeholder="Team" formControlName="Team" #Team>
+            <mat-option value="OS">OS</mat-option>
+            <mat-option value="MCAL">MCAL</mat-option>
+            <mat-option value="SDK">SDK</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="updateEmployee(Name.value, Age.value, Position.value, Skill.value, Team.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+</div>
